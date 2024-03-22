@@ -26,7 +26,7 @@ def main(args):
     subprocess.run(["service", "tor", "start"])
     
     try:
-        interval = int(args.seconds) if args.seconds else 60
+        interval = int(args.seconds) if args.seconds else 10
         
         while True:
             time.sleep(interval)
@@ -55,9 +55,9 @@ Usage:
     sudo python Cr4zyTor.py [-s SECONDS] [-i ITERATIONS]
 
 Options:
-    -s, --seconds      Time interval to change IP in seconds (default 60)
+    -s, --seconds      Time interval to change IP in seconds (default 10)
         '''))
-    parser.add_argument("-s", "--seconds", type=int, help="Time interval to change IP in seconds (default 60)")
+    parser.add_argument("-s", "--seconds", type=int, help="Time interval to change IP in seconds (default 10)")
     args = parser.parse_args()
     main(args)
 
